@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Guess main Page</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>   
+	    猜一個數字(1-10) <br/>
+	    <input type="text" id="number"   value="6"/><br/>
+	    <input type="button"  id="submit" value="Guess" />
+	<div id="display"></div>
+	<script>
+	        function result(data,status){
+	        	  //alert(status);
+	        	  $("#display").html(data);
+	        }
+	        function send(){
+	        	var n=$("#number").val();
+	        	$.post("Fortune.jsp",{"number":n},result );
+	        }
+	        function start(){
+	        	$("#submit").click(send);
+	        }
+	       $(document).ready(start);
+	</script>
+     
+</body>
+</html>
